@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Bienvenido a FitApp</h1>
+    <% if user_signed_in? %>
+      <div class="d-grid gap-2 d-md-block">
+        <%= link_to 'Mis Entrenamientos', trainings_path, class: 'btn btn-primary' %>
+        <%= link_to 'Log Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-primary' %>
+      </div>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path, class: 'btn btn-secondary' %>
+    <% end %>
+</div>

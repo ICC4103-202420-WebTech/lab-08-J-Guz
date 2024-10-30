@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="mb-4">Mis Entrenamientos</h1>
+
+    <% @trainings.each do |training| %>
+    <div class="card text-center">
+    <div class="card-header">
+        <%=training.name%>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><%= training.description%></h5>
+        <p class="card-text"><strong>Fecha de creación:</strong> <%= training.created_at.strftime("%B %d, %Y") %></p>
+        <div class="mt-1">
+             <%= link_to 'Ver', training_path(training), class:"btn btn-primary btn-sm"  %>
+            <%= link_to 'Editar', edit_training_path(training), class: 'btn btn-warning btn-sm' %>
+            <%= link_to 'Eliminar', training_path(training), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
+        </div>
+    </div>
+    </div>
+    <% end %>
+
+    <div class="mt-4">
+    <%= link_to '+Nuevo Entrenamiento', new_training_path, class: 'btn btn-primary' %>
+    </div>
+
+    
+
+
+</div>

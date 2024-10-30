@@ -1,0 +1,18 @@
+<div class="container">
+    <h1><%= @training.name %></h1>
+
+    <p><strong>Descripción:</strong></p>
+    <p><%= @training.description %></p>
+
+    <p><strong>Duración:</strong> <%= @training.duration %> minutos</p>
+
+    <p><strong>Fecha de creación:</strong> <%= @training.created_at.strftime("%B %d, %Y") %></p>
+
+    <%= link_to 'Editar', edit_training_path(@training), class: 'btn btn-primary' %>
+    <%= link_to 'Volver', trainings_path, class: 'btn btn-secondary' %>
+
+    <% if user_signed_in? %>
+    <%= link_to 'Eliminar Entrenamiento', @training, method: :delete,  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+    <% end %>
+
+</div>
